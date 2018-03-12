@@ -40,6 +40,5 @@ public class CalculatorTest {
         double result = calc.getResult();
         double expected = 1D;
         assertThat(result, is(expected));
-
     }
 }
