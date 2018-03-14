@@ -16,4 +16,10 @@ public class Max {
     public int maxOfTwoIntegers(int first, int second) {
         return (first > second) ? first : second;
     }
+
+    public int maxOfThreeIntegers(int first, int second, int third) {
+        int temp = this.maxOfTwoIntegers(first, second);
+
+        return this.maxOfTwoIntegers(temp, third);
+    }
 }

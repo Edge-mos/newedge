@@ -22,4 +22,10 @@ public class MaxTest {
         Max maximum = new Max();
         assertThat(maximum.maxOfTwoIntegers(1, 2), is(2));
     }
+
+    @Test
+    public void whenOneDigitMaximumOfThree() {
+        Max maximum = new Max();
+        assertThat(maximum.maxOfThreeIntegers(51, 102, 33), is(102));
+    }
 }
