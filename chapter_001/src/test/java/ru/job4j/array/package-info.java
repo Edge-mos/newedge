@@ -1,5 +1,6 @@
 /**
  * SquareTest.
+ * FindLoopTest.
  *
  * @author Vladimir Yamnikov (Androedge@gmail.com).
  * @version $2$.
