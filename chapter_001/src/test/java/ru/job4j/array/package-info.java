@@ -2,6 +2,7 @@
  * SquareTest.
  * FindLoopTest.
  * TurnTest.
+ * MatrixTest.
  *
  * @author Vladimir Yamnikov (Androedge@gmail.com).
  * @version $2$.
