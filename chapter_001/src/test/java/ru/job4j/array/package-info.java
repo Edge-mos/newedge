@@ -3,6 +3,7 @@
  * FindLoopTest.
  * TurnTest.
  * MatrixTest.
+ * ArrayCharTest.
  *
  * @author Vladimir Yamnikov (Androedge@gmail.com).
  * @version $2$.
