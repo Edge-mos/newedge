@@ -3,7 +3,7 @@ package ru.job4j.array;
 import java.util.Arrays;
 
 /**
- * Обёртка над строкой.
+ * Удалить дубликаты из массива.
  * @author Vladimir Yamnikov (Androedge@gmail.com).
  * @version $2$.
  * @since 15.03.2018.
