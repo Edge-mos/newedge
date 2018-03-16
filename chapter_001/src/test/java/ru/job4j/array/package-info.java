@@ -4,6 +4,7 @@
  * TurnTest.
  * MatrixTest.
  * ArrayCharTest.
+ * StringInWordTest.
  *
  * @author Vladimir Yamnikov (Androedge@gmail.com).
  * @version $2$.
