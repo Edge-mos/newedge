@@ -21,6 +21,10 @@ public class Item {
         this(name, description, created,null);
     }
 
+    public Item(String name, String description) {
+       this(name, description, 0, null);
+    }
+
     public Item(String name, String description, long created, String comment) {
         this.name = name;
         this.description = description;

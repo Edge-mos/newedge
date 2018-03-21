@@ -108,15 +108,15 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] values = getAll();
         Item[] tmp = new Item[getAll().length];
-        int count = 0;
+        int position = 0;
 
         for (Item value : values) {
             if (value.getName().equals(key)) {
-                tmp[count] = value;
-                count++;
+                tmp[position] = value;
+                position++;
             }
         }
-        return Arrays.copyOf(tmp, count);
+        return Arrays.copyOf(tmp, position);
     }
 
 }
