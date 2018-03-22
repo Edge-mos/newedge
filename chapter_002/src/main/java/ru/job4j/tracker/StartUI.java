@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.interfaces.Input;
 import ru.job4j.tracker.models.Item;
 
 /**
@@ -44,16 +45,16 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    private final ConsoleInput consoleInput;
+    private final Input input;
 
     /**
      * Конструктор, инициализирующй поля.
      * @param tracker хранилище заявок.
      * @param consoleInput ввод пользователя.
      */
-    public StartUI(Tracker tracker, ConsoleInput consoleInput) {
+    public StartUI(Tracker tracker, Input consoleInput) {
         this.tracker = tracker;
-        this.consoleInput = consoleInput;
+        this.input = consoleInput;
     }
 
     public void showMenu() {
@@ -72,7 +73,7 @@ public class StartUI {
         showMenu();
 
         do {
-            String answer = this.consoleInput.ask("Select option: ");
+            String answer = this.input.ask("Select option: ");
             switch (answer) {
                 case "0":
                     createItem();
@@ -113,8 +114,8 @@ public class StartUI {
 
     private void createItem() {
         System.out.println("\n-----Enter new task-----");
-        String name = this.consoleInput.ask("Enter task's name: ");
-        String description = this.consoleInput.ask("Enter description: ");
+        String name = this.input.ask("Enter task's name: ");
+        String description = this.input.ask("Enter description: ");
         Item createdItem = new Item(name, description);
         this.tracker.add(createdItem);
         System.out.println("New task with id: " + createdItem.getId() + " added!\n");
@@ -133,10 +134,10 @@ public class StartUI {
         System.out.println("\n-----Edit task-----");
         System.out.println("Choise task for Editting: ");
         Item editableItem = findById();
-        String name = this.consoleInput.ask("Edit name: ");
-        String description = this.consoleInput.ask("Edit description: ");
-        long time = Long.valueOf(this.consoleInput.ask("Edit time: "));
-        String comment = this.consoleInput.ask("Enter comment: ");
+        String name = this.input.ask("Edit name: ");
+        String description = this.input.ask("Edit description: ");
+        long time = Long.valueOf(this.input.ask("Edit time: "));
+        String comment = this.input.ask("Enter comment: ");
         Item tmp = new Item(name, description, time, comment);
         this.tracker.replace(editableItem.getId(), tmp);
         System.out.println("After editing: \n" + this.tracker.findById(editableItem.getId()) + "\n");
@@ -147,11 +148,11 @@ public class StartUI {
         System.out.println("Choise task for Delete: ");
         Item deleteItem = findById();
         this.tracker.delete(deleteItem.getId());
-        System.out.println("task with id: " + deleteItem.getId() + "was removed from list\n");
+        System.out.println("task with id: " + deleteItem.getId() + "0 removed from list\n");
     }
 
     private Item findById() {
-        String answer = this.consoleInput.ask("Enter task's id: ");
+        String answer = this.input.ask("Enter task's id: ");
         Item wantedItem = this.tracker.findById(answer);
         System.out.println(wantedItem + "\n");
         return wantedItem;
@@ -159,9 +160,10 @@ public class StartUI {
 
     private void findName() {
         System.out.println("-----Find by name-----");
-        String taskName = this.consoleInput.ask("Enter name of the task(s)");
+        String taskName = this.input.ask("Enter name of the task(s)");
         Item[] tasks = this.tracker.findByName(taskName);
         System.out.println("Result: ");
+        System.out.println("Длинна: " + tasks.length);
         for (Item task : tasks) {
             System.out.println(task);
         }
@@ -169,7 +171,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new Tracker(), new ConsoleInput()).init();
-
+        Input input = new ConsoleInput();
+        new StartUI(new Tracker(), input).init();
     }
 }

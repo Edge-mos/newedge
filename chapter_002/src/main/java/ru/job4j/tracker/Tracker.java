@@ -111,12 +111,11 @@ public class Tracker {
         int position = 0;
 
         for (Item value : values) {
-            if (value.getName().equals(key)) {
+            if (value != null && value.getName().equals(key)) {
                 tmp[position] = value;
                 position++;
             }
         }
         return Arrays.copyOf(tmp, position);
     }
-
 }
