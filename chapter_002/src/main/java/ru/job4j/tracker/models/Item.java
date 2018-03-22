@@ -18,7 +18,7 @@ public class Item {
     }
 
     public Item(String name, String description, long created) {
-        this(name, description, created,null);
+        this(name, description, created, null);
     }
 
     public Item(String name, String description) {
@@ -74,12 +74,18 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", created=" + created +
-                ", comment='" + comment + '\'' +
+        return "Item{"
+                +
+                "id='" + id + '\''
+                +
+                ", name='" + name + '\''
+                +
+                ", description='" + description + '\''
+                +
+                ", created=" + created
+                +
+                ", comment='" + comment + '\''
+                +
                 '}';
     }
 }

@@ -82,7 +82,7 @@ public class Tracker {
      */
     public void delete(String id) {
         for (int i = 0; i < this.items.length; i++) {
-            if(this.items[i] != null && this.items[i].getId().equals(id)) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, i + 1, this.items, i, this.items.length - 1 - i);
             }
         }
@@ -94,7 +94,7 @@ public class Tracker {
      */
     public Item[] getAll() {
         Item[] result = new Item[this.position];
-        for (int i = 0; i < this.position ; i++) {
+        for (int i = 0; i < this.position; i++) {
             result[i] = this.items[i];
         }
         return result;
