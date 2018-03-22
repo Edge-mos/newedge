@@ -1,10 +1,8 @@
 package ru.job4j.tracker;
 
-
 import org.junit.Test;
 import ru.job4j.tracker.interfaces.Input;
 import ru.job4j.tracker.models.Item;
-
 import java.util.Arrays;
 
 import static org.hamcrest.core.Is.is;
