@@ -10,34 +10,6 @@ import ru.job4j.tracker.models.Item;
  */
 
 public class StartUI {
-//    /**
-//     * Константа меню для добавления новой заявки.
-//     */
-//    private static final int ADD = 0;
-//    /**
-//     * Константа меню для вывода списка всех заявок
-//     */
-//    private static final int SHOW = 1;
-//    /**
-//     * Константа меню для редактирования элемента.
-//     */
-//    private static final int EDIT = 2;
-//    /**
-//     * Константа меню для удаления элемента.
-//     */
-//    private static final int DELETE = 3;
-//    /**
-//     * константа меню для поиска элемента по id.
-//     */
-//    private static final int FINDID = 4;
-//    /**
-//     * Константа меню для поиска элемента по имени.
-//     */
-//    private static final int FINDNAME = 5;
-//    /**
-//     * Константа меню для выхода из программы.
-//     */
-//    private static final int EXIT = 6;
     /**
      * Хранилище заявок.
      */
@@ -148,7 +120,7 @@ public class StartUI {
         System.out.println("Choise task for Delete: ");
         Item deleteItem = findById();
         this.tracker.delete(deleteItem.getId());
-        System.out.println("task with id: " + deleteItem.getId() + "0 removed from list\n");
+        System.out.println("task with id: " + deleteItem.getId() + " was removed from list\n");
     }
 
     private Item findById() {

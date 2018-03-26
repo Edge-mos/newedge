@@ -113,7 +113,6 @@ public class StartUITestConsoleOutput {
                                 .append("6. Exit Program.\n")
                                 .append("-----EXIT-----\n")
                                 .toString()
-
                 )
         );
 
