@@ -98,6 +98,18 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Метод для определения диапазона ключей, для того что бы подставить в перегруженный метод int ask()
+     * @return
+     */
+    public int[] getRange() {
+        int[] result = new int[this.actions.length];
+        for (int i = 0; i < this.actions.length; i++) {
+            result[i] = this.actions[i].key();
+        }
+        return result;
+    }
+
     private class AddItem implements UserAction {
 
         @Override
