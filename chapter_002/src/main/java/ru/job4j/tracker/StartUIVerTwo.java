@@ -50,7 +50,7 @@ public class StartUIVerTwo {
     }
 
 //    public static void main(String[] args) {
-//        new StartUIVerTwo(new Tracker(), new ValidateInput()).init();
+//        new StartUIVerTwo(new Tracker(), new ValidateInput(new ConsoleInput())).init();
 //    }
 
 
