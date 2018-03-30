@@ -17,11 +17,10 @@ import ru.job4j.tracker.models.Item;
  */
 
 
-class EditItem implements UserAction {
+class EditItem extends BaseAction {
 
-    @Override
-    public int key() {
-        return 2;
+    public EditItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -45,16 +44,12 @@ class EditItem implements UserAction {
             }
         }
     }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Edit the new Item.");
-    }
 }
 
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
+    private int index = 0;
     /**
      * Массив для визуального меню.
      */
@@ -69,13 +64,13 @@ public class MenuTracker {
      * Регистрация объектов в массиве.
      */
     public void fillActions() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new MenuTracker.ShowAllItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeleteItem();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
-        this.actions[6] = new Exit();
+        this.addActions(new AddItem(0, "Add new Item."));
+        this.addActions(new MenuTracker.ShowAllItems(1, "Show all items."));
+        this.addActions(new EditItem(2, "Edit Item."));
+        this.addActions(new DeleteItem(3, "Delete Item from Tracker."));
+        this.addActions(new FindById(4, "Find Item by id."));
+        this.addActions(new FindByName(5, "Find by name."));
+        this.addActions(new Exit(6, "Exit Program."));
     }
 
     /**
@@ -100,7 +95,7 @@ public class MenuTracker {
 
     /**
      * Метод для определения диапазона ключей, для того что бы подставить в перегруженный метод int ask()
-     * @return
+     * @return Диапазон значений.
      */
     public int[] getRange() {
         int[] result = new int[this.actions.length];
@@ -110,11 +105,18 @@ public class MenuTracker {
         return result;
     }
 
-    private class AddItem implements UserAction {
+    /**
+     * Метод для добавления пунктов меню.
+     * @param action Добавляет объект типа UserAction, который реализован как внутренний класс.
+     */
+    public void addActions(UserAction action) {
+        this.actions[index++] = action;
+    }
 
-        @Override
-        public int key() {
-            return 0;
+    private class AddItem extends BaseAction {
+
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -124,17 +126,16 @@ public class MenuTracker {
             tracker.add(new Item(name, description));
         }
 
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add the new Item.");
-        }
     }
 
-    public static class ShowAllItems implements UserAction {
+    public static class ShowAllItems extends BaseAction {
 
-        @Override
-        public int key() {
-            return 1;
+        public ShowAllItems(int key, String name) {
+            super(key, name);
+        }
+
+        public ShowAllItems() {
+            super();
         }
 
         @Override
@@ -145,18 +146,12 @@ public class MenuTracker {
                 System.out.println();
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Show All Items in Tracker.");
-        }
     }
 
-    private static class FindById implements UserAction {
+    private static class FindById extends BaseAction {
 
-        @Override
-        public int key() {
-            return 4;
+        public FindById(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -164,20 +159,13 @@ public class MenuTracker {
             String answer = input.ask("Enter task's id: ");
             Item wantedItem = tracker.findById(answer);
             System.out.println(wantedItem + "\n");
-            //return wantedItem;
-        }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find Item by id.");
         }
     }
 
-    private class DeleteItem implements UserAction {
+    private class DeleteItem extends BaseAction {
 
-        @Override
-        public int key() {
-            return 3;
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -195,18 +183,12 @@ public class MenuTracker {
                 }
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Delete Item from Tracker.");
-        }
     }
 
-    private class FindByName implements UserAction {
+    private class FindByName extends BaseAction {
 
-        @Override
-        public int key() {
-            return 5;
+        public FindByName(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -221,18 +203,12 @@ public class MenuTracker {
             }
             System.out.println();
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find by name.");
-        }
     }
 
-    private class Exit implements UserAction {
+    private class Exit extends BaseAction {
 
-        @Override
-        public int key() {
-            return 6;
+        public Exit(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -240,13 +216,5 @@ public class MenuTracker {
             System.out.println("-----Exit-----");
             System.exit(0);
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Exit Program.");
-        }
     }
-
-
-
 }
