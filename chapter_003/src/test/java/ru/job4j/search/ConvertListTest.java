@@ -60,4 +60,18 @@ public class ConvertListTest {
         assertThat(result.toString(), is("1 2 3 4 5 6 7 0 0 "));
     }
 
+    @Test
+    public void thenAddListOfArraysThanGetListOfAllElements() {
+        ConvertList convertList = new ConvertList();
+        List<int[]> list = new ArrayList<>();
+        list.add(new int[]{1, 2});
+        list.add(new int[]{3, 4, 5, 6});
+
+        List<Integer> res = convertList.convert(list);
+        System.out.println(res);
+        ArrayList<Integer> expected = new ArrayList<>();
+
+        assertThat(res.toString(), is("[1, 2, 3, 4, 5, 6]"));
+    }
+
 }

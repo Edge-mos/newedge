@@ -40,6 +40,17 @@ public class ConvertList {
                     }
                 }
             }
+
+        }
+        return result;
+    }
+
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] ints : list) {
+            for (int element : ints) {
+                result.add(element);
+            }
         }
         return result;
     }
