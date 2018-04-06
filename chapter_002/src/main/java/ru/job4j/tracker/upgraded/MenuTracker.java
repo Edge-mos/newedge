@@ -98,19 +98,6 @@ public class MenuTracker {
     }
 
     /**
-     * Метод для определения диапазона ключей, для того что бы подставить в перегруженный метод int ask()
-     * @return Диапазон значений.
-     */
-//    public int[] getRange() {
-//
-//        int[] result = new int[this.actions.length];
-//        for (int i = 0; i < this.actions.length; i++) {
-//            result[i] = this.actions[i].key();
-//        }
-//        return result;
-//    }
-
-    /**
      * Метод для добавления пунктов меню.
      * @param action Добавляет объект типа UserAction, который реализован как внутренний класс.
      */
