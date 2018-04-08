@@ -3,6 +3,7 @@ package ru.job4j.search;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class ConvertList {
                     ints[i] = list.get(listIndex++);
                 }
             }
+
         }
         return result;
     }
