@@ -49,7 +49,7 @@ public class ConvertListTest {
     }
 
     @Test
-    public void thenListToArray3X3() {
+    public void whenListToArray3Rows() {
         ConvertList convertList = new ConvertList();
         List<Integer> list = new ArrayList<>();
         for (int i = 1; i < 8; i++) {
@@ -65,18 +65,16 @@ public class ConvertListTest {
     }
 
     @Test
-    public void thenListToArray4X4() {
+    public void whenListToArray2Rows() {
         ConvertList convertList = new ConvertList();
         List<Integer> list = new ArrayList<>();
-        for (int i = 1; i < 8; i++) {
+        for (int i = 1; i < 9; i++) {
             list.add(i);
         }
-        int[][] result = convertList.toArray(list, 4);
+        int[][] result = convertList.toArray(list, 2);
         int[][] expected = {
                 {1, 2, 3, 4},
-                {5, 6, 7, 0},
-                {0, 0, 0, 0},
-                {0, 0, 0, 0}
+                {5, 6, 7, 8}
         };
         assertThat(result, is(expected));
     }

@@ -23,21 +23,24 @@ public class ConvertList {
         return result;
     }
 
+    /**
+     * Сконвертировать List в двумерный массив.
+     * @param list List элементов
+     * @param rows число строк, сделать проверку что бы кол-во элементов в массиве было кратно строкам если нет, то заполнить недостающие элементы 0.
+     * @return Двумерный массив.
+     */
     public int[][] toArray(List<Integer> list, int rows) {
-        int[][] result = new int[rows][rows];
+        int columns = (list.size() % rows == 0) ? (list.size() / rows) : (list.size() / rows + 1);
+        int[][] result = new int[rows][columns];
         int listIndex = 0;
-        int difference = rows * rows - list.size();
-        if (difference > 0) {
-            for (int i = 0; i < difference; i++) {
-                list.add(0);
-            }
             for (int[] ints : result) {
                 for (int i = 0; i < ints.length; i++) {
+                    if (listIndex == list.size()) {
+                        break;
+                    }
                     ints[i] = list.get(listIndex++);
                 }
             }
-
-        }
         return result;
     }
 
