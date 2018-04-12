@@ -20,15 +20,24 @@ public class SortUserTest {
         Set<User> result = new TreeSet<>();
         list.addAll(
                 Arrays.asList(
-                        new User("Ivan", 21),
-                        new User("Vladimir", 33),
-                        new User("Petr", 15)
+                        new User("Ivan", 1),
+                        new User("Vladimir", 2),
+                        new User("Petr", 4),
+                        new User("Andrey", 3)
                 )
         );
         SortUser sortUser = new SortUser();
         result = sortUser.sort(list);
-        Iterator<User> it = result.iterator();
-        assertThat(it.next(), is(list.get(2)));
+       Set<User> expected = new TreeSet<>();
+       expected.addAll(
+               Arrays.asList(
+                       new User("Ivan", 1),
+                       new User("Vladimir", 2),
+                       new User("Andrey", 3),
+                       new User("Petr", 4)
+               )
+       );
+        assertThat(result, is(expected));
     }
 
     @Test
@@ -59,6 +68,42 @@ public class SortUserTest {
                 )
         );
         SortUser sortUser = new SortUser();
-        assertThat(sortUser.sortByAllFields(list).get(0), is(new User("Ан", 20)));
+        List<User> result = sortUser.sortByAllFields(list);
+        List<User> expected  = new ArrayList<>();
+        expected.addAll(
+                Arrays.asList(
+                        new User("Ан", 20),
+                        new User("Ан", 23),
+                        new User("Иван", 25),
+                        new User("Иван", 30),
+                        new User("Сергей", 20),
+                        new User("Сергей", 25)
+                )
+        );
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenSortSameNameByAllFields() {
+        List<User> list = new ArrayList<>();
+        list.addAll(
+                Arrays.asList(
+                        new User("Сергей", 3),
+                        new User("Сергей", 1),
+                        new User("Сергей", 2)
+                )
+        );
+        SortUser sortUser = new SortUser();
+        List<User> result = sortUser.sortByAllFields(list);
+        List<User> expected  = new ArrayList<>();
+        expected.addAll(
+                Arrays.asList(
+                        new User("Сергей", 1),
+                        new User("Сергей", 2),
+                        new User("Сергей", 3)
+                )
+        );
+        assertThat(result, is(expected));
+
     }
 }
