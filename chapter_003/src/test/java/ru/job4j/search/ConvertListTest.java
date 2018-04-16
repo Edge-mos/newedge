@@ -80,6 +80,23 @@ public class ConvertListTest {
     }
 
     @Test
+    public void whenListHave5ElementsAndArray4Rows() {
+        ConvertList convertList = new ConvertList();
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i < 6; i++) {
+            list.add(i);
+        }
+        int[][] result = convertList.toArray(list, 4);
+        int[][] expected = {
+                {1, 2},
+                {3, 4},
+                {5, 0},
+                {0, 0}
+        };
+        assertThat(result, is(expected));
+    }
+
+    @Test
     public void thenAddListOfArraysThanGetListOfAllElements() {
         ConvertList convertList = new ConvertList();
         List<int[]> list = new ArrayList<>();
