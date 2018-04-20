@@ -11,7 +11,7 @@ public class PriorityQueue {
     private LinkedList<Task> tasksList = new LinkedList<>();
 
     public void put(Task task) {
-        if (task.getPriority() != 1 || this.tasksList.isEmpty()) {
+        if (task.getPriority() != 1) {
             this.tasksList.add(task);
         } else {
             this.tasksList.add(0, task);

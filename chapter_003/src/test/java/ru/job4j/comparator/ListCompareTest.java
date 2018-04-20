@@ -45,4 +45,11 @@ public class ListCompareTest {
         int result = listCompare.compare("Patrova", "Petrov");
         assertThat(result, lessThan(0));
     }
+
+    @Test
+    public void whenFirstGreatherThanSecondThanResultShouldBePositive() {
+        ListCompare listCompare = new ListCompare();
+        int result = listCompare.compare("Ivanov", "Ivan");
+        System.out.println(result);
+    }
 }

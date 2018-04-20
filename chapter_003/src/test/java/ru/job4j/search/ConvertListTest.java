@@ -97,6 +97,20 @@ public class ConvertListTest {
     }
 
     @Test
+    public void testConvertToArray() {
+        ConvertList convertList = new ConvertList();
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i < 9; i++) {
+            list.add(i);
+        }
+
+        int[][] result = convertList.toArray(list, 4);
+        System.out.println(Arrays.deepToString(result));
+
+
+    }
+
+    @Test
     public void thenAddListOfArraysThanGetListOfAllElements() {
         ConvertList convertList = new ConvertList();
         List<int[]> list = new ArrayList<>();

@@ -1,10 +1,8 @@
 package ru.job4j.search;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * @author Vladimir Yamnikov (Androedge@gmail.com).
@@ -32,15 +30,16 @@ public class ConvertList {
     public int[][] toArray(List<Integer> list, int rows) {
         int columns = (list.size() % rows == 0) ? (list.size() / rows) : (list.size() / rows + 1);
         int[][] result = new int[rows][columns];
-        int listIndex = 0;
-            for (int[] ints : result) {
-                for (int i = 0; i < ints.length; i++) {
-                    if (listIndex == list.size()) {
-                        break;
-                    }
-                    ints[i] = list.get(listIndex++);
-                }
+        int i = 0;
+        int j = 0;
+        for (Integer element : list) {
+            if (j < columns) {
+                result[i][j++] = element;
+            } else {
+                j = 0;
+                result[++i][j++] = element;
             }
+        }
         return result;
     }
 
