@@ -11,11 +11,18 @@ public class PriorityQueue {
     private LinkedList<Task> tasksList = new LinkedList<>();
 
     public void put(Task task) {
-        if (task.getPriority() != 1) {
-            this.tasksList.add(task);
-        } else {
-            this.tasksList.add(0, task);
+
+        int index = 0;
+        for (Task element : tasksList) {
+            index++;
+            if (task.getPriority() <= element.getPriority()) {
+                index = this.tasksList.indexOf(element);
+                    break;
+            }
         }
+        this.tasksList.add(index, task);
+        System.out.println(this.tasksList);
+
     }
 
     public Task take() {

@@ -15,7 +15,7 @@ public class PriorityQueueTest {
         priorityQueue.put(new Task("low", 5));
         priorityQueue.put(new Task("middle", 2));
         priorityQueue.put(new Task("low", 7));
-        priorityQueue.put(new Task("urgent", 1));
+        priorityQueue.put(new Task("hight", 1));
         priorityQueue.put(new Task("middle", 3));
         priorityQueue.put(new Task("urgent", 1));
         Task result = priorityQueue.take();
@@ -30,5 +30,14 @@ public class PriorityQueueTest {
         priorityQueue.put(new Task("third", 1));
         Task result = priorityQueue.take();
         assertThat(result.getDesc(), is("third"));
+    }
+
+    @Test
+    public void test() {
+        PriorityQueue priorityQueue = new PriorityQueue();
+        priorityQueue.put(new Task("urgent", 1));
+        priorityQueue.put(new Task("middle", 2));
+//        priorityQueue.put(new Task("mid", 2));
+//        priorityQueue.put(new Task("lowww", 7));
     }
 }
