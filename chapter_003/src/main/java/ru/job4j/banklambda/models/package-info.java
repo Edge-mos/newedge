@@ -3,4 +3,4 @@
  * Bank.
  * User.
  */
-package ru.job4j.bank.models;
+package ru.job4j.banklambda.models;

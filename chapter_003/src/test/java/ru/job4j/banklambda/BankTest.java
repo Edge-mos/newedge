@@ -1,8 +1,8 @@
-package ru.job4j.bank;
+package ru.job4j.banklambda;
 import org.junit.Test;
-import ru.job4j.bank.models.Bank;
-import ru.job4j.bank.models.Account;
-import ru.job4j.bank.models.User;
+import ru.job4j.banklambda.models.Bank;
+import ru.job4j.banklambda.models.Account;
+import ru.job4j.banklambda.models.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,7 @@
-package ru.job4j.bank.interfaces;
-import ru.job4j.bank.models.Account;
-import ru.job4j.bank.models.User;
+package ru.job4j.banklambda.interfaces;
+import ru.job4j.banklambda.models.Account;
+import ru.job4j.banklambda.models.User;
 import java.util.List;
-import java.util.Map;
 
 
 public interface Processible {

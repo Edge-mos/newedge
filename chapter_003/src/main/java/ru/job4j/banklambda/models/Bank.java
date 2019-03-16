@@ -1,6 +1,6 @@
-package ru.job4j.bank.models;
+package ru.job4j.banklambda.models;
 
-import ru.job4j.bank.interfaces.implemented.AbstractBank;
+import ru.job4j.banklambda.interfaces.implemented.AbstractBank;
 
 import java.util.*;
 

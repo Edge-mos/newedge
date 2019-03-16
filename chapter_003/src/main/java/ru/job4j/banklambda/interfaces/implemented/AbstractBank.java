@@ -1,12 +1,11 @@
-package ru.job4j.bank.interfaces.implemented;
+package ru.job4j.banklambda.interfaces.implemented;
 
-import ru.job4j.bank.interfaces.Processible;
-import ru.job4j.bank.models.Account;
-import ru.job4j.bank.models.User;
+import ru.job4j.banklambda.interfaces.Processible;
+import ru.job4j.banklambda.models.Account;
+import ru.job4j.banklambda.models.User;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Vladimir Yamnikov (Androedge@gmail.com).
